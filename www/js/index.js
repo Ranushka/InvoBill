@@ -26,8 +26,8 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        // alert('ss')
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        alert('deviceready')
     },
 
     // deviceready Event Handler
@@ -35,27 +35,14 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+        // app.receivedEvent('deviceready');
 
         var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+
+        alert( db )
         db.transaction(populateDB, errorCB, successCB);
 
     },
-
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-
-        // go to main screen when devise is ready
-        // window.location.assign('home.html');
-    }
 
 
 
@@ -63,6 +50,7 @@ var app = {
     // Populate the database
     //
     function populateDB(tx) {
+        alert( 'populateDB' )
         tx.executeSql('DROP TABLE IF EXISTS DEMO');
         tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
         tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
@@ -91,6 +79,7 @@ var app = {
     // Transaction success callback
     //
     function successCB() {
+        alert( 'successCB' )
         var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
         db.transaction(queryDB, errorCB);
     }
@@ -99,6 +88,7 @@ var app = {
     // Query the database
     //
     function queryDB(tx) {
+        alert( 'queryDB' )
         tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
     }
 
@@ -107,8 +97,10 @@ var app = {
     // Query the success callback
     //
     function querySuccess(tx, results) {
+        alert( 'querySuccess' )
         var len = results.rows.length;
         $('#coffee_num').html(len);
+        alert( len )
         // console.log("DEMO table: " + len + " rows found.");
 
         var coffee_list = '';
