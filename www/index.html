@@ -44,6 +44,20 @@ input:focus,textarea:focus,select:focus{
     }
 }
 
+.main_nav_weaper ul li:not(:first-child){
+    margin-top: 32px;
+}
+
+.main_nav_weaper ul li:first-child a{
+    padding: 0;
+}
+.user_name{
+    border: 0;
+padding: 5px 10px;
+background: rgba(0, 0, 0, 0);
+box-shadow: 0 0 0;
+}
+
 /*overrids*/
 
 /*thumbnail on list wiew detail*/
@@ -56,6 +70,10 @@ input:focus,textarea:focus,select:focus{
     padding-left: 80px;
     min-height: 50px;
 }
+.ui-header-fixed {
+padding-top: 0;
+}
+
 
 
         </style>
@@ -69,11 +87,10 @@ input:focus,textarea:focus,select:focus{
 <!-- --------------invoice---------------------------------------------------------------------------------------------------         -->
         <div data-role="page" data-theme="a" id="invoice">
             <div data-role="header" data-theme="a" data-position="fixed" class="header">
-                <h1>InvoBill</h1>
-                <a href="#" class="jqm-navmenu-link ui-btn-right manu_top_nav_a" data-icon="bars" data-iconpos="notext">Navigation</a>
+                <a href="#" class="ui-btn-right user_name">Ranushka Goonesekere</a>
                 <div data-role="navbar" class="nav-glyphish-example main_nav_weaper" data-grid="c">
                     <ul>
-                        <li><a href="#invoice"      id="invoice_nav"    class="ui-btn-active ui-state-persist" data-transition="none">Invoice</a></li>
+                        <li><a href="#invoice"      id="invoice_nav"    class="ui-btn-active ui-state-persist" data-transition="none"><h1>InvoBill</h1></a></li>
                         <li><a href="#clients"    id="clients_nav"  class="" data-transition="none">Clients</a></li>
                         <li><a href="#dues"         id="dues_nav"       class="" data-transition="none">Dues</a></li>
                         <li><a href="#mypanel"       id="offering_nav"     class="" data-transition="none">Offerings</a></li>
@@ -130,11 +147,10 @@ input:focus,textarea:focus,select:focus{
 <!-- --------------clients---------------------------------------------------------------------------------------------------         -->
         <div data-role="page" data-theme="a" id="clients">
             <div data-role="header" data-theme="a" data-position="fixed" class="header">
-                <h1>InvoBill</h1>
-                <a href="#" class="jqm-navmenu-link ui-btn-right manu_top_nav_a" data-icon="bars" data-iconpos="notext">Navigation</a>
-                <div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+                <a href="#" class="ui-btn-right user_name">Ranushka Goonesekere</a>
+                <div data-role="navbar" class="nav-glyphish-example main_nav_weaper" data-grid="c">
                     <ul>
-                        <li><a href="#invoice"      id="invoice_nav"    class="" data-transition="none">Invoice</a></li>
+                        <li><a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><h1>InvoBill</h1></a></li>
                         <li><a href="#clients"    id="clients_nav"  class="ui-btn-active ui-state-persist" data-transition="none">Clients</a></li>
                         <li><a href="#dues"         id="dues_nav"       class="" data-transition="none">Dues</a></li>
                         <li><a href="#offering"       id="offering_nav"     class="" data-transition="none">Offering</a></li>
@@ -213,11 +229,10 @@ input:focus,textarea:focus,select:focus{
 <!-- --------------dues---------------------------------------------------------------------------------------------------         -->
         <div data-role="page" data-theme="a" id="dues">
             <div data-role="header" data-theme="a" data-position="fixed" class="header">
-                <h1>InvoBill</h1>
-                <a href="#" class="jqm-navmenu-link ui-btn-right manu_top_nav_a" data-icon="bars" data-iconpos="notext">Navigation</a>
-                <div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+                <a href="#" class="ui-btn-right user_name">Ranushka Goonesekere</a>
+                <div data-role="navbar" class="nav-glyphish-example main_nav_weaper" data-grid="c">
                     <ul>
-                        <li><a href="#invoice"      id="invoice_nav"    class="" data-transition="none">Invoice</a></li>
+                        <li><a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><h1>InvoBill</h1></a></li>
                         <li><a href="#clients"    id="clients_nav"  class="" data-transition="none">Clients</a></li>
                         <li><a href="#dues"         id="dues_nav"       class="ui-btn-active ui-state-persist" data-transition="none">Dues</a></li>
                         <li><a href="#offering"       id="offering_nav"     class="" data-transition="none">Offering</a></li>
@@ -270,11 +285,10 @@ input:focus,textarea:focus,select:focus{
 <!-- --------------Offering---------------------------------------------------------------------------------------------------         -->
         <div data-role="page" data-theme="a" id="offering">
             <div data-role="header" data-theme="a" data-position="fixed" class="header">
-                <h1>InvoBill</h1>
-                <a href="#" class="jqm-navmenu-link ui-btn-right manu_top_nav_a" data-icon="bars" data-iconpos="notext">Navigation</a>
-                <div data-role="navbar" class="nav-glyphish-example" data-grid="c">
+                <a href="#" class="ui-btn-right user_name">Ranushka Goonesekere</a>
+                <div data-role="navbar" class="nav-glyphish-example main_nav_weaper" data-grid="c">
                     <ul>
-                        <li><a href="#invoice"      id="invoice_nav"    class="" data-transition="none">Invoice</a></li>
+                        <li><a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><h1>InvoBill</h1></a></li>
                         <li><a href="#clients"    id="clients_nav"  class="" data-transition="none">Clients</a></li>
                         <li><a href="#dues"         id="dues_nav"       class="" data-transition="none">Dues</a></li>
                         <li><a href="#offering"       id="offering_nav"     class="ui-btn-active ui-state-persist" data-transition="none">Offering</a></li>
