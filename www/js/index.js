@@ -7,10 +7,10 @@ document.addEventListener('deviceready', onDeviceReady, false);
     // function, we must explicity call 'app.receivedEvent(...);'
     function onDeviceReady () {
         // app.receivedEvent('deviceready');
-
+        alert('onDeviceReady')
         var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
 
-        // alert( db )
+        alert( db );
         db.transaction(populateDB, errorCB, successCB);
 
     }
@@ -20,9 +20,9 @@ document.addEventListener('deviceready', onDeviceReady, false);
     // Populate the database
     //
     function populateDB(tx) {
-        // alert( 'populateDB' )
+        alert( 'populateDB' )
         tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        // tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
+        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
         // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
         // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
         // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (3, "dsad row")');
@@ -126,7 +126,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
     //
     function queryOffering(tx, results) {
         alert( 'queryOffering' )
-        
+
         var len = results.rows.length;
         // $('#coffee_num').html(len);
         alert( len )
