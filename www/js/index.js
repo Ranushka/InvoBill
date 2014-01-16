@@ -7,10 +7,10 @@ document.addEventListener('deviceready', onDeviceReady, false);
     // function, we must explicity call 'app.receivedEvent(...);'
     function onDeviceReady () {
         // app.receivedEvent('deviceready');
-        alert('onDeviceReady')
+        // alert('onDeviceReady')
         var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
 
-        alert( db );
+        // alert( db );
         db.transaction(populateDB, errorCB, successCB);
 
     }
@@ -20,7 +20,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
     // Populate the database
     //
     function populateDB(tx) {
-        alert( 'populateDB' )
+        // alert( 'populateDB' )
         tx.executeSql('DROP TABLE IF EXISTS DEMO');
         tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
         // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
@@ -72,7 +72,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
     // Transaction success callback
     //
     function successCB() {
-        alert( 'successCB' )
+        // alert( 'successCB' )
         var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
         db.transaction(queryDB, errorCB);
     }
@@ -81,7 +81,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
     // Query the database
     //
     function queryDB(tx) {
-        alert( 'queryDB' )
+        // alert( 'queryDB' )
         // tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
         // offering_num
         tx.executeSql('SELECT * FROM OFFERINGS', [], queryOffering, errorCB);
@@ -92,11 +92,11 @@ document.addEventListener('deviceready', onDeviceReady, false);
     // Query the success callback
     //
     function querySuccess(tx, results) {
-        alert( 'querySuccess' )
+        // alert( 'querySuccess' )
 
         var len = results.rows.length;
         $('#coffee_num').html(len);
-        alert( len )
+        // alert( len )
 
         // console.log("DEMO table: " + len + " rows found.");
 
@@ -125,11 +125,11 @@ document.addEventListener('deviceready', onDeviceReady, false);
     // Query the queryOffering callback
     //
     function queryOffering(tx, results) {
-        alert( 'queryOffering' )
+        // alert( 'queryOffering' )
 
         var len = results.rows.length;
         // $('#coffee_num').html(len);
-        alert( len )
+        // alert( len )
         // console.log("DEMO table: " + len + " rows found.");
 
         var offering_list = '';
