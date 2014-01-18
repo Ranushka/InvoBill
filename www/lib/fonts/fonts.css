@@ -198,7 +198,9 @@ body  * {
 	font-weight: normal !important;
 }
 
-img{
-    background: rgb(204, 204, 204);
-width: 80px;
+#invoice_nav{
+    height: 66px;
+}
+#invoice_nav h1{
+font-size: 16px;
 }
