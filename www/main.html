@@ -54,18 +54,45 @@ border-top: 1px solid rgb(228, 228, 228);
     }
 }
 
-.main_nav_weaper ul li:not(:first-child){
+/*.main_nav_weaper ul li{
     margin-top: 32px;
+}*/
+
+/*.main_nav_weaper ul li:first-child a{
+    padding: 0;
+}*/
+
+.logo_wraper{
+    width: 25%;
+    display: block;
+}
+.main_nav_weaper{
+    width: 75%;
+    display: block;
 }
 
-.main_nav_weaper ul li:first-child a{
-    padding: 0;
+
+#invoice_nav{
+    height: 62px;
+    margin: 0;
+    display: block;
+    border-color: rgb(51, 136, 204);
+    color: rgb(255, 255, 255);
+    text-shadow: 0 1px 0 rgb(0, 85, 153);
+    background-color: rgb(11, 98, 168);
 }
-.user_name{
-    border: 0;
-padding: 5px 10px;
-background: rgba(0, 0, 0, 0);
-box-shadow: 0 0 0;
+
+#invoice.ui-page-active #invoice_nav {
+    background-color: rgb(51, 136, 204);
+}
+
+/*#dues.ui-page-active*/
+
+.ui-page .user_name {
+margin: 0;
+display: block;
+padding: 5px 16px;
+border-right: 0;
 }
 
 /*overrids*/
@@ -84,8 +111,14 @@ box-shadow: 0 0 0;
 padding-top: 0;
 }
 
+.ui-header{
+    border-bottom: 4px solid rgb(51, 136, 204);
+    /*border-width: 4px 0;*/
+}
+
 #logo{
-    
+        margin: auto;
+    display: block;
 }
 
 
@@ -231,7 +264,7 @@ text-align: left;
     }
     #logo{
         width: 50px;
-        margin-top: 10px;
+        padding: 20px 0;
     }
 
     .invoice_actions{
@@ -273,8 +306,8 @@ text-align: left;
        display: none; 
     }
     #logo{
-        width: 50px;
-        margin-top: 10px;
+    width: 50px;
+    padding: 20px 0;
     }
 
     .invoice_actions{
@@ -346,14 +379,23 @@ text-align: left;
 
         <div data-role="page" data-theme="a" id="invoice">
             <div data-role="header" data-theme="a" data-position="fixed" class="header">
-                <a href="#" class="ui-btn-right user_name">Ranushka Goonesekere</a>
-                <div data-role="navbar" class="nav-glyphish-example main_nav_weaper" data-grid="c">
-                    <ul>
-                        <li><a href="#invoice"      id="invoice_nav"    class="ui-btn-active ui-state-persist" data-transition="none"><h1><img src="img/logo.svg" alt="" id="logo"></h1></a></li>
-                        <li><a href="#clients"    id="clients_nav"  class="" data-transition="none">Clients</a></li>
-                        <li><a href="#dues"         id="dues_nav"       class="" data-transition="none">Dues</a></li>
-                        <li><a href="#mypanel"       id="offering_nav"     class="" data-transition="none">Offerings</a></li>
-                    </ul>
+                <div class="ui-block-a logo_wraper">
+                    <a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><img src="img/logo.svg" alt="" id="logo"></a>
+                </div>
+                <div class="ui-block-b main_nav_weaper">
+                    <!-- <a href="#" class="ui-btn user_name">Ranushka Goonesekere</a> -->
+                    <div class="ui-grid-solo">
+                        <!-- <div class="ui-block-a"> -->
+                        <a href="#" class="ui-btn user_name">Ranushka Goonesekere</a>
+                        <!-- </div> -->
+                    </div>
+                    <div data-role="navbar" class="" data-grid="b">
+                        <ul>
+                            <li><a href="#clients"    id="clients_nav"  class="" data-transition="none">Clients</a></li>
+                            <li><a href="#dues"         id="dues_nav"       class="" data-transition="none">Dues</a></li>
+                            <li><a href="#offering"       id="offering_nav"     class="" data-transition="none">Offerings</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
@@ -503,14 +545,23 @@ text-align: left;
 <!-- --------------clients---------------------------------------------------------------------------------------------------         -->
         <div data-role="page" data-theme="a" id="clients">
             <div data-role="header" data-theme="a" data-position="fixed" class="header">
-                <a href="#" class="ui-btn-right user_name">Ranushka Goonesekere</a>
-                <div data-role="navbar" class="nav-glyphish-example main_nav_weaper" data-grid="c">
-                    <ul>
-                        <li><a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><h1>InvoBill</h1></a></li>
-                        <li><a href="#clients"    id="clients_nav"  class="ui-btn-active ui-state-persist" data-transition="none">Clients</a></li>
-                        <li><a href="#dues"         id="dues_nav"       class="" data-transition="none">Dues</a></li>
-                        <li><a href="#offering"       id="offering_nav"     class="" data-transition="none">Offering</a></li>
-                    </ul>
+                <div class="ui-block-a logo_wraper">
+                    <a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><img src="img/logo.svg" alt="" id="logo"></a>
+                </div>
+                <div class="ui-block-b main_nav_weaper">
+                    <!-- <a href="#" class="ui-btn user_name">Ranushka Goonesekere</a> -->
+                    <div class="ui-grid-solo">
+                        <!-- <div class="ui-block-a"> -->
+                        <a href="#" class="ui-btn user_name">Ranushka Goonesekere</a>
+                        <!-- </div> -->
+                    </div>
+                    <div data-role="navbar" class="" data-grid="b">
+                        <ul>
+                            <li><a href="#clients"    id="clients_nav"  class="ui-btn ui-btn-active ui-state-persist" data-transition="none">Clients</a></li>
+                            <li><a href="#dues"         id="dues_nav"       class="" data-transition="none">Dues</a></li>
+                            <li><a href="#offering"       id="offering_nav"     class="" data-transition="none">Offerings</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div data-role="content" data-theme="a">
@@ -585,14 +636,23 @@ text-align: left;
 <!-- --------------dues---------------------------------------------------------------------------------------------------         -->
         <div data-role="page" data-theme="a" id="dues">
             <div data-role="header" data-theme="a" data-position="fixed" class="header">
-                <a href="#" class="ui-btn-right user_name">Ranushka Goonesekere</a>
-                <div data-role="navbar" class="nav-glyphish-example main_nav_weaper" data-grid="c">
-                    <ul>
-                        <li><a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><h1>InvoBill</h1></a></li>
-                        <li><a href="#clients"    id="clients_nav"  class="" data-transition="none">Clients</a></li>
-                        <li><a href="#dues"         id="dues_nav"       class="ui-btn-active ui-state-persist" data-transition="none">Dues</a></li>
-                        <li><a href="#offering"       id="offering_nav"     class="" data-transition="none">Offering</a></li>
-                    </ul>
+                <div class="ui-block-a logo_wraper">
+                    <a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><img src="img/logo.svg" alt="" id="logo"></a>
+                </div>
+                <div class="ui-block-b main_nav_weaper">
+                    <!-- <a href="#" class="ui-btn user_name">Ranushka Goonesekere</a> -->
+                    <div class="ui-grid-solo">
+                        <!-- <div class="ui-block-a"> -->
+                        <a href="#" class="ui-btn user_name">Ranushka Goonesekere</a>
+                        <!-- </div> -->
+                    </div>
+                    <div data-role="navbar" class="" data-grid="b">
+                        <ul>
+                            <li><a href="#clients"    id="clients_nav"  class="" data-transition="none">Clients</a></li>
+                            <li><a href="#dues"         id="dues_nav"       class="ui-btn ui-btn-active ui-state-persist" data-transition="none">Dues</a></li>
+                            <li><a href="#offering"       id="offering_nav"     class="" data-transition="none">Offerings</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div data-role="content" data-theme="a">
@@ -641,14 +701,23 @@ text-align: left;
 <!-- --------------Offering---------------------------------------------------------------------------------------------------         -->
         <div data-role="page" data-theme="a" id="offering">
             <div data-role="header" data-theme="a" data-position="fixed" class="header">
-                <a href="#" class="ui-btn-right user_name">Ranushka Goonesekere</a>
-                <div data-role="navbar" class="nav-glyphish-example main_nav_weaper" data-grid="c">
-                    <ul>
-                        <li><a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><h1>InvoBill</h1></a></li>
-                        <li><a href="#clients"    id="clients_nav"  class="" data-transition="none">Clients</a></li>
-                        <li><a href="#dues"         id="dues_nav"       class="" data-transition="none">Dues</a></li>
-                        <li><a href="#offering"       id="offering_nav"     class="ui-btn-active ui-state-persist" data-transition="none">Offering</a></li>
-                    </ul>
+                <div class="ui-block-a logo_wraper">
+                    <a href="#invoice"      id="invoice_nav"    class="" data-transition="none"><img src="img/logo.svg" alt="" id="logo"></a>
+                </div>
+                <div class="ui-block-b main_nav_weaper">
+                    <!-- <a href="#" class="ui-btn user_name">Ranushka Goonesekere</a> -->
+                    <div class="ui-grid-solo">
+                        <!-- <div class="ui-block-a"> -->
+                        <a href="#" class="ui-btn user_name">Ranushka Goonesekere</a>
+                        <!-- </div> -->
+                    </div>
+                    <div data-role="navbar" class="" data-grid="b">
+                        <ul>
+                            <li><a href="#clients"    id="clients_nav"  class="" data-transition="none">Clients</a></li>
+                            <li><a href="#dues"         id="dues_nav"       class="" data-transition="none">Dues</a></li>
+                            <li><a href="#offering"       id="offering_nav"     class="ui-btn ui-btn-active ui-state-persist" data-transition="none">Offerings</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div data-role="content" data-theme="a">
