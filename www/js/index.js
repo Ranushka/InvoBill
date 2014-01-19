@@ -6,11 +6,7 @@ document.addEventListener('deviceready', onDeviceReady, false);
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicity call 'app.receivedEvent(...);'
     function onDeviceReady () {
-        // app.receivedEvent('deviceready');
-        // alert('onDeviceReady')
-        var db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
-
-        // alert( db );
+        var db = window.openDatabase("invobill", "2.0", "invobill", 200000);
         db.transaction(populateDB, errorCB, successCB);
 
     }
@@ -21,25 +17,6 @@ document.addEventListener('deviceready', onDeviceReady, false);
     //
     function populateDB(tx) {
         // alert( 'populateDB' )
-        tx.executeSql('DROP TABLE IF EXISTS DEMO');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id unique, data)');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (1, "First row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (2, "Second row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (3, "dsad row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (4, "hgfh row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (5, "Sekjhkghcond row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (6, "truryu row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (8, "bvmbnm row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (10, "gdsfgbnvgf row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (11, "zcfswtew row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (12, "ttwert row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (13, "rewtdsfgbnvgf row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (15, "pigdsrwqrfgbnvgf row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (16, "gdsgfhfgbnvgf row")');
-        // tx.executeSql('INSERT INTO DEMO (id, data) VALUES (17, "dsf row")');
-
-
-
         tx.executeSql('DROP TABLE IF EXISTS OFFERINGS');
         tx.executeSql('CREATE TABLE IF NOT EXISTS OFFERINGS (id unique, name, img, type, availability, price, description)');
         tx.executeSql('INSERT INTO OFFERINGS (id, name, img, type, availability, price, description ) VALUES (1,  "Sarix IXSeriesIP",     "1.jpg",   "p", "25",   "8800",  "Sarix IXSeriesIP Sarix IXSeriesIPSarix IXSeriesIPIXSeriesIPSarix IXSeriesIP IXSeriesIPSarix IXSeriesIP")');
@@ -57,102 +34,59 @@ document.addEventListener('deviceready', onDeviceReady, false);
         tx.executeSql('INSERT INTO OFFERINGS (id, name, img, type, availability, price, description ) VALUES (16, "gdsgfhfgbnvgf row",    "16.jpg",  "s", "y",    "8200",  "gdsgfhfgbnvgf row gdsgfhfgbnvgf rowgdsgfhfgbnvgf rowrowgdsgfhfgbnvgf row rowgdsgfhfgbnvgf row")');
         tx.executeSql('INSERT INTO OFFERINGS (id, name, img, type, availability, price, description ) VALUES (17, "dsf row",              "17.jpg",  "p", "25",   "1900",  "dsf row dsf rowdsf rowrowdsf row rowdsf row")');
 
-
-
     }
 
-// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HDSpectra HD
     // Transaction error callback
     //
     function errorCB(tx, err) {
-        // alert("Error processing SQL: "+err);
-        // alert("Error processing SQL: "+tx);
+        alert("Error processing SQL: "+err);
     }
 
     // Transaction success callback
     //
     function successCB() {
-        // alert( 'successCB' )
-        var db = window.openDatabase("Database", "1.0", "dkd", 200000);
-        db.transaction(queryDB, errorCB);
+        console.log( 'successCB' );
+        // db.transaction(queryDB, errorCB);
     }
 
 
-    // Query the database
-    //
-    function queryDB(tx) {
-        // alert( 'queryDB' )
-        // tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
-        // offering_num
-        tx.executeSql('SELECT * FROM OFFERINGS', [], queryOffering, errorCB);
-    }
+
 
 
 
     // Query the success callback
     //
-    function querySuccess(tx, results) {
-        // alert( 'querySuccess' )
+    // function querySuccess(tx, results) {
+    //     // alert( 'querySuccess' )
 
-        var len = results.rows.length;
-        $('#coffee_num').html(len);
-        // alert( len )
+    //     var len = results.rows.length;
+    //     $('#coffee_num').html(len);
+    //     // alert( len )
 
-        // console.log("DEMO table: " + len + " rows found.");
+    //     // console.log("DEMO table: " + len + " rows found.");
 
-        var coffee_list = '';
+    //     var coffee_list = '';
 
-        for (var i=0; i<len; i++){
+    //     for (var i=0; i<len; i++){
 
-            coffee_list += '<li><a href="#">'+
-                                '<img src="../../_assets/img/album-bb.jpg">'+
-                                '<h2>'+ results.rows.item(i).id +'</h2>'+
-                                '<p>'+ results.rows.item(i).data +'</p></a>'+
-                            '</li>';
+    //         coffee_list += '<li><a href="#">'+
+    //                             '<img src="img/offerings/1.jpg">'+
+    //                             '<h2>'+ results.rows.item(i).id +'</h2>'+
+    //                             '<p>'+ results.rows.item(i).data +'</p></a>'+
+    //                         '</li>';
 
-            // console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
-        }
-
-
-        $( "#coffee_list_container" ).html( coffee_list );
-
-        $( "#coffee_list_container" ).listview( "refresh" );
+    //         // console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
+    //     }
 
 
-    }
+    //     $( "#coffee_list_container" ).html( coffee_list );
+
+    //     $( "#coffee_list_container" ).listview( "refresh" );
 
 
-    // Query the queryOffering callback
-    //
-    function queryOffering(tx, results) {
-        // alert( 'queryOffering' )
-
-        var len = results.rows.length;
-        // $('#coffee_num').html(len);
-        // alert( len )
-        // console.log("DEMO table: " + len + " rows found.");
-
-        var offering_list = '';
-        for (var i=0; i<len; i++){
-
-            // id, name, img, type, availability, price, description
-            offering_list += '<li><a href="#">'+
-                                '<img src="img/offerings/'+ results.rows.item(i).img +'">'+
-                                '<h2>'+ results.rows.item(i).name +'</h2>'+
-                                '<p>'+ results.rows.item(i).description +'</p></a>'+
-                                '<a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>'+
-                                // '<span class="ui-li-count">'+ results.rows.item(i).price +'</span>'+
-                            '</li>';
-
-            // console.log("Row = " + i + " ID = " + results.rows.item(i).id + " Data =  " + results.rows.item(i).data);
-        }
+    // }
 
 
-        $( "#offering_list_container" ).html( offering_list );
-
-        $( "#offering_list_container" ).listview( "refresh" );
-
-
-    }
+    
 
 
